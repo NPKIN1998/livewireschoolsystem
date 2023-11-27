@@ -1,5 +1,7 @@
 <div class="flex justify-center gap-4 p-6 bg-gray-200 bg-opacity-25">
     <?php
+    use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\DB;
     $userId = Auth::id();
     
     $userData = DB::table('registered_students')
