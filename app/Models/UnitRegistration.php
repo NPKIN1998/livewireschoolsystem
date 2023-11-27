@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class UnitRegistration extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'unit_id',
+        'status',
+    ];
 }

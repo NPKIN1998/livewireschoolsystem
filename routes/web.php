@@ -7,8 +7,8 @@ use App\Http\Controllers\Admin\RegisteredStudentController;
 use App\Http\Controllers\Admin\UnitController as AdminUnitController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\Students\LessonController;
-use App\Http\Controllers\Teachers\CourseController;
 use App\Http\Controllers\Students\UnitRegistrationController;
+use App\Http\Controllers\Teachers\CourseController;
 use App\Http\Controllers\Teachers\StudentController as TeacherStudentController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -42,11 +42,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'role:student', 'prefix' => 'student', 'as' => 'student.'], function () {
         Route::resource('lessons', LessonController::class);
         Route::get('/registerunits', [UnitRegistrationController::class, 'index'])->name('registerunits');
+        Route::post('/registerunits', [UnitRegistrationController::class, 'store'])->name('registerunits.store');
     });
     Route::group(['middleware' => 'role:teacher', 'prefix' => 'teacher', 'as' => 'teacher.'], function () {
         Route::resource('courses', CourseController::class);
         Route::get('students', [TeacherStudentController::class, 'index'])->name('students');
-        
     });
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('users', UserController::class);
