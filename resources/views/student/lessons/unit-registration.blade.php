@@ -8,7 +8,7 @@
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             <x-validation-errors class="mb-4" />
-            <div id="toast-default"
+            <div id="toast-default" x-data="{ show: false }"
                 class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
                 role="alert">
                 <div

@@ -44,6 +44,9 @@
                             <x-nav-link href="{{ route('teacher.students') }}" :active="request()->routeIs('teacher.students')">
                                 {{ __('Students') }}
                             </x-nav-link>
+                            <x-nav-link href="{{ route('teacher.teaching.unit') }}" :active="request()->routeIs('teacher.teaching.unit')">
+                                {{ __('Teaching Units') }}
+                            </x-nav-link>
                         @endif
 
                         @if (auth()->user()->role_id == 2)

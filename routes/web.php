@@ -10,6 +10,7 @@ use App\Http\Controllers\Students\LessonController;
 use App\Http\Controllers\Students\UnitRegistrationController;
 use App\Http\Controllers\Teachers\CourseController;
 use App\Http\Controllers\Teachers\StudentController as TeacherStudentController;
+use App\Http\Controllers\Teachers\TeachingUnit;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'role:teacher', 'prefix' => 'teacher', 'as' => 'teacher.'], function () {
         Route::resource('courses', CourseController::class);
         Route::get('students', [TeacherStudentController::class, 'index'])->name('students');
+        Route::get('/teaching-unit', [TeachingUnit::class, 'index'])->name('teaching.unit');
     });
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('users', UserController::class);
