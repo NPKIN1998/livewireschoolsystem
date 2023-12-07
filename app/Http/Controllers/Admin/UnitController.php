@@ -44,10 +44,6 @@ class UnitController extends Controller
       'semester' => $request->input('semester'),
     ]);
 
-    // dd($unit);
-    // if ($request->has('categories')) {
-    //   $unit->courses()->attach($request->courses);
-    // }
     return redirect()->route('admin.units')->with('success', 'Unit created successfully!!!');
   }
 
