@@ -14,6 +14,10 @@
                     <x-welcome-teacher />
                 @elseif(auth()->user()->role_id == '2')
                     <x-welcome-student />
+                @elseif(auth()->user()->role_id == '4')
+                    <x-welcome-academic />
+                @elseif(auth()->user()->role_id == '5')
+                    <x-welcome-examiner />
                 @endif
             </div>
         </div>

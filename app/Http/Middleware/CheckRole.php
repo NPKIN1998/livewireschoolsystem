@@ -29,6 +29,14 @@ class CheckRole
             abort(403);
         }
 
+        if ($role == 'academic' && auth()->user()->role_id != 4) {
+            abort(403);
+        }
+
+        if ($role == 'examiner' && auth()->user()->role_id != 5) {
+            abort(403);
+        }
+        
         return $next($request);
     }
 }

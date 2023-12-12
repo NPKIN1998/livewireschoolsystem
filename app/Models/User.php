@@ -79,4 +79,20 @@ class User extends Authenticatable
     {
         return $this->belongsTo(RegisteredStudent::class);
     }
+
+    // public function teacher(): BelongsTo
+    // {
+    //     return $this->belongsTo(Teacher::class);
+    // }
+
+    public function unitRegistrations()
+    {
+        return $this->hasMany(UnitRegistration::class);
+    }
+
+    public function units() {
+        return $this->belongsTo(Unit::class);
+    }
+
+
 }

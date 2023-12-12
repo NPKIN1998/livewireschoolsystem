@@ -209,7 +209,7 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => 'pkinuthiangigi@gmail.com',
+            'to' => 'bettykinyua2020@gmail.com',
 
             'from' => [
                 'address' => env('MAIL_FROM_ADDRESS', 'bettykinyua2020@gmail.com'),

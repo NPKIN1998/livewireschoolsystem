@@ -62,53 +62,10 @@ class UnitRegistrationController extends Controller
                 $reg =  UnitRegistration::create(['unit_id' => $unitId, 'status' => $status, 'user_id' => $userId]);
                 Session::flash('success', 'Registration successful!');
 
-                dd($reg);
+                // dd($reg);
             }
         }
-        // $userId = Auth::id();
-
-        // $unit = DB::table('units')
-        //     ->join('registered_students', function ($join) use ($userId) {
-        //         $join->on('units.semester', '=', 'registered_students.semester')
-        //             ->on('units.year', '=', 'registered_students.year_student');
-        //     })
-        //     ->join('users', 'users.id', '=', 'registered_students.user_id')
-        //     ->where('users.id', '=', $userId)
-        //     ->select('units.*')
-        //     ->first();
-
-        // $unit = $request->input('unit_ids');
-        // $status = 'register' || 'deregister';
-        // foreach ($unit as $unit) {
-        //     $reg =  UnitRegistration::create(['unit_id' => $unit, 'status' => $status, 'user_id' => $userId]);
-        //     // dd($reg);
-        // }
-
+     
         return redirect()->back()->with('success', 'Units registered successfully!');
-
-        // $request->validate([
-        //     'status' => 'required|array|in:Register,Deregister'
-        // ]);
-
-        // // Process the validated form data
-        // foreach ($request['status'] as $unitId => $action) {
-        //     $unit = Unit::find($unitId);
-
-        //     if ($action === 'Register') {
-        //         // Register the unit for the student
-        //     } elseif ($action === 'Deregister') {
-        //         // Deregister the unit for the student
-        //     }
-        // }
-        // foreach ($units as $unit) {
-        //     $reg = UnitRegistration::create([
-        //         'status' => $request->input('status'),
-        //         'user_id' => $userId,
-        //         'unit_id' => $units->first()->id,
-        //     ]);
-
-        //     dd($reg);
-        // }
-
     }
 }

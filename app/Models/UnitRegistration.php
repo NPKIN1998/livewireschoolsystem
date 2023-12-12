@@ -14,4 +14,14 @@ class UnitRegistration extends Model
         'unit_id',
         'status',
     ];
+
+    public function unitMarks()
+    {
+        return $this->hasMany(UnitMark::class, 'unit_registration_id', 'id');
+    }
+
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class, 'unit_id', 'id');
+    }
 }

@@ -51,8 +51,8 @@ class RegisteredStudentController extends Controller
 
         
     //    dd($enroll);
-
-       return true;
+    
+       return redirect()->route('admin.students')->with('success', 'Student enrolled successfully');
     
     }
 

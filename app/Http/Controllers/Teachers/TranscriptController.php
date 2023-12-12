@@ -11,4 +11,5 @@ class TranscriptController extends Controller
     {
         return view('student.transcript.index');
     }
+    
 }

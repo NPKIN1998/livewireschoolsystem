@@ -16,11 +16,6 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    @can('manage-users')
-                        <x-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
-                            {{ __('Users') }}
-                        </x-nav-link>
-                        @endif
 
                         @if (auth()->user()->role_id == 1)
                             <x-nav-link href="{{ route('admin.schools') }}" :active="request()->routeIs('admin.schools')">
@@ -38,6 +33,27 @@
                             <x-nav-link href="{{ route('admin.students') }}" :active="request()->routeIs('admin.students')">
                                 {{ __(' Students') }}
                             </x-nav-link>
+                            <x-nav-link href="{{ route('admin.lecturers') }}" :active="request()->routeIs('admin.lecturers')">
+                                {{ __(' Lectures') }}
+                            </x-nav-link>
+                        @endif
+
+                          @if (auth()->user()->role_id == 4)
+                            <x-nav-link href="{{ route('academic.schools') }}" :active="request()->routeIs('academic.schools')">
+                                {{ __('Schools') }}
+                            </x-nav-link>
+
+                            <x-nav-link href="{{ route('academic.courses') }}" :active="request()->routeIs('academic.courses')">
+                                {{ __('Courses') }}
+                            </x-nav-link>
+
+                            <x-nav-link href="{{ route('academic.units') }}" :active="request()->routeIs('academic.units')">
+                                {{ __('Units') }}
+                            </x-nav-link>
+
+                            <x-nav-link href="{{ route('academic.students') }}" :active="request()->routeIs('academic.students')">
+                                {{ __(' Students') }}
+                            </x-nav-link>
                         @endif
 
                         @if (auth()->user()->role_id == 3)
@@ -49,17 +65,29 @@
                             </x-nav-link>
                         @endif
 
-                        @if (auth()->user()->role_id == 2)
-                            <x-nav-link href="{{ route('student.lessons.index') }}" :active="request()->routeIs('student.lessons.index')">
-                                {{ __('Lessons') }}
+                        @if (auth()->user()->role_id == 5)
+                            <x-nav-link href="{{ route('examiner.schools') }}" :active="request()->routeIs('examiner.schools')">
+                                {{ __('Schools') }}
+                            </x-nav-link>
+
+                            <x-nav-link href="{{ route('examiner.courses') }}" :active="request()->routeIs('examiner.courses')">
+                                {{ __('Courses') }}
+                            </x-nav-link>
+
+                            <x-nav-link href="{{ route('examiner.units') }}" :active="request()->routeIs('examiner.units')">
+                                {{ __('Units') }}
+                            </x-nav-link>
+
+                            <x-nav-link href="{{ route('examiner.students') }}" :active="request()->routeIs('examiner.students')">
+                                {{ __(' Students') }}
+                            </x-nav-link>
+
+                            <x-nav-link href="{{ route('examiner.transcripts') }}" :active="request()->routeIs('examiner.transcripts')">
+                                {{ __('Transcripts') }}
                             </x-nav-link>
                         @endif
 
-                        @can('manage-courses')
-                            <x-nav-link href="{{ route('teacher.courses.index') }}" :active="request()->routeIs('teacher.courses.index')">
-                                {{ __('Courses') }}
-                            </x-nav-link>
-                            @endif
+                    
                         </div>
                     </div>
 
@@ -146,20 +174,6 @@
                                 </x-slot>
 
                                 <x-slot name="content">
-                                    <!-- Account Management -->
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Manage Account') }}
-                                    </div>
-
-                                    <x-dropdown-link href="{{ route('profile.show') }}">
-                                        {{ __('Profile') }}
-                                    </x-dropdown-link>
-
-                                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                        <x-dropdown-link href="{{ route('api-tokens.index') }}">
-                                            {{ __('API Tokens') }}
-                                        </x-dropdown-link>
-                                    @endif
 
                                     <div class="border-t border-gray-100"></div>
 
